@@ -5,15 +5,27 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class XROffsetGrabInteractable : XRGrabInteractable
 {
-    // Start is called before the first frame update
     void Start()
     {
-        
+        if (attachTransform == null)
+        {
+            GameObject attach = new GameObject("Attach");
+            attach.transform.SetParent(gameObject.transform);
+            attachTransform = attach.transform;
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    protected override void OnSelectEntering(XRBaseInteractor interactor)
+    {
+        attachTransform.position = interactor.transform.position;
+        attachTransform.rotation = interactor.transform.rotation;
+
+
+        base.OnSelectEntering(interactor);
     }
 }
