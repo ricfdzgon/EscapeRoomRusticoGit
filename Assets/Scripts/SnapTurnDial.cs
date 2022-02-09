@@ -12,7 +12,6 @@ public class SnapTurnDial : MonoBehaviour
     // esa e a maneria de que podamos saber cal e o angulo de Euler que temos
     // que regular dende este script
     public int turnAxis;
-
     public XRBaseControllerInteractor baseController;
 
     private float hapticFeedBackRange;
