@@ -1,5 +1,25 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &3421780495161364234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811400121108358807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5560239e186d954db8832c54abee131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snapAngles:
+  - 0
+  - 30
+  - 60
+  - 90
+  - 120
+  turnAxis: 2
+  baseController: {fileID: 0}
 --- !u!1 &7478331003958943534
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,5 +746,10 @@ PrefabInstance:
 --- !u!4 &8794964195264895563 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2145300273257748408, guid: a6aa79d1592e0174b983ac8b1825aec8, type: 3}
+  m_PrefabInstance: {fileID: 7478331003679313395}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1811400121108358807 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9145470251152698212, guid: a6aa79d1592e0174b983ac8b1825aec8, type: 3}
   m_PrefabInstance: {fileID: 7478331003679313395}
   m_PrefabAsset: {fileID: 0}

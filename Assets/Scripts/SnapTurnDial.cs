@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class SnapTurnDial : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class SnapTurnDial : MonoBehaviour
     // que regular dende este script
     public int turnAxis;
 
+    public XRBaseControllerInteractor baseController;
+
+    private float hapticFeedBackRange;
+    private bool hapticFeedBackControl;
+
     // Esta variable permite a roda xirar libremente mentres está agarrada
     // e que se "pegue" a un dos ángulos pre establecidos cando se solta
     private bool rotacionLibre;
@@ -19,6 +25,8 @@ public class SnapTurnDial : MonoBehaviour
     void Start()
     {
         rotacionLibre = false;
+        hapticFeedBackRange = 2.0f;
+        hapticFeedBackControl = true;
     }
 
     void Update()
@@ -31,11 +39,17 @@ public class SnapTurnDial : MonoBehaviour
         {
             Snap();
         }
+        else
+        {
+            HapticFeedback();
+        }
     }
 
     public void Liberar(bool libre)
     {
         rotacionLibre = libre;
+
+        baseController.SendHapticImpulse(0.3f, 0.1f);
     }
 
     private void Snap()
@@ -79,5 +93,19 @@ public class SnapTurnDial : MonoBehaviour
 
         transform.localEulerAngles = actualEulerAngles;
         GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+    }
+
+    private void HapticFeedback()
+    {
+        float referenceAngle = snapAngles[BuscarAnguloMaisCercano(transform.localEulerAngles[turnAxis])];
+        if (hapticFeedBackControl && Mathf.Abs(referenceAngle - transform.localEulerAngles[turnAxis]) > hapticFeedBackRange)
+        {
+            hapticFeedBackControl = false;
+        }
+        else if (!hapticFeedBackControl && Mathf.Abs(referenceAngle - transform.localEulerAngles[turnAxis]) < hapticFeedBackRange)
+        {
+            hapticFeedBackControl = true;
+            baseController.SendHapticImpulse(0.3f, 0.1f);
+        }
     }
 }
