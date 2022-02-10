@@ -5,6 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class SnapTurnDial : MonoBehaviour
 {
+    public int correctIndex;
     // Necesitamos una lista de los ángulos nos que a roda se debe deter
     //Creanika publica para poder establecer estes angulos no inspector de Unity
     public float[] snapAngles;
@@ -106,5 +107,11 @@ public class SnapTurnDial : MonoBehaviour
             hapticFeedBackControl = true;
             baseController.SendHapticImpulse(0.3f, 0.1f);
         }
+    }
+
+    public bool CodeCheck()
+    {
+        float actualAngle = transform.localEulerAngles[turnAxis];
+        return correctIndex == BuscarAnguloMaisCercano(actualAngle);
     }
 }
