@@ -6,78 +6,90 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class SnapTurnDial : MonoBehaviour
 {
     public int correctIndex;
-    // Necesitamos una lista de los ángulos nos que a roda se debe deter
-    //Creanika publica para poder establecer estes angulos no inspector de Unity
+    //Precisamos unha
+    //Lista dos ángulos nos que a roda se debe deter
+    //creámola pública para poder establecer estes ángulos no
+    //inspector de Unity
     public float[] snapAngles;
-    // En otra variable establecemos cal e o xeito no que xira a roda
-    // esa e a maneria de que podamos saber cal e o angulo de Euler que temos
-    // que regular dende este script
+
+    //En outra variable establecemos cal é o eixo no que xira a roda
+    //esa é a maneira de que podamos saber cal é o angulo de Euler que temos
+    //que regular dende este script
     public int turnAxis;
+
     public XRBaseControllerInteractor baseController;
 
-    private float hapticFeedBackRange;
-    private bool hapticFeedBackControl;
-
-    // Esta variable permite a roda xirar libremente mentres está agarrada
-    // e que se "pegue" a un dos ángulos pre establecidos cando se solta
+    //Esta variable permite á roda xirar libremente mentres está agarrada
+    //e que se "pegue" a un dos ángulos pre establecidos cando se solta
     private bool rotacionLibre;
 
+    private bool hapticFeedbackControl;
+    private float hapticFeedbackRange;
+
+    // Start is called before the first frame update
     void Start()
     {
+        //La rotación de inicio está bloqueada
         rotacionLibre = false;
-        hapticFeedBackRange = 2.0f;
-        hapticFeedBackControl = true;
+        hapticFeedbackRange = 2.0f;
+        hapticFeedbackControl = true;
     }
 
+    // Update is called once per frame
     void Update()
     {
-        // En cada frame comprobamos se a rotacion esta liberada
-        // se o está, non temos que facer nada
-        // Se non está liberada. temos que facer que a roda se quede
-        // nunha das posicions prefixadas
-        if (!rotacionLibre)
-        {
+        //En cada frame comprobamos se a rotación está liberada
+        //se o está, non temos que facer nada
+        //Se non está liberada, temos que facer que a roda se 
+        //quede nunha das posicións prefixadas
+        if( ! rotacionLibre) {
             Snap();
-        }
-        else
-        {
+        } else {
             HapticFeedback();
         }
     }
 
-    public void Liberar(bool libre)
-    {
+    private void HapticFeedback() {
+        float referenceAngle = snapAngles[BuscarAnguloMaisCercano(transform.localEulerAngles[turnAxis])];
+        if(hapticFeedbackControl && Mathf.Abs(referenceAngle - transform.localEulerAngles[turnAxis]) > hapticFeedbackRange) {
+            hapticFeedbackControl = false;
+        } else if( ! hapticFeedbackControl &&  Mathf.Abs(referenceAngle - transform.localEulerAngles[turnAxis]) < hapticFeedbackRange) {
+             hapticFeedbackControl = true;
+             baseController.SendHapticImpulse(0.3f, 0.1f);
+        }
+    }
+    public void Liberar(bool libre) {
         rotacionLibre = libre;
 
         baseController.SendHapticImpulse(0.3f, 0.1f);
     }
 
-    private void Snap()
-    {
-        //Esta funcion busca e establece o ángulo no que debe quedar a roda
-        // será o angulo mais cercano o que ten a roda no momento de soltala
-        // O primerio e mirar cal e o angulo actual
+    private void Snap() {
+        //Esta función busca e establece o ángulo no que debe quedar a roda
+        //será o ángulo máis cercano ó que ten a roda no momento de soltala
+        //O primeiro é mirar cal é o ángulo actual
         float actualAngle = transform.localEulerAngles[turnAxis];
+       
 
-        // Despois buscamos cal dos angulos prefixados e o mais cercano
-        // Interesanos (mais adiante veremos por que) obter o indice do ángulo en snapAngles
-        //en lugar do angulo en si
+
+        //Despois buscamos cal dos ángulos prefixados é o máis cercano
+        //Interésanos (máis adiante veremos por que) obter o índice do ángulo en snapAngles
+        //en lugar do ángulo en si
+
         int indiceAnguloDestino = BuscarAnguloMaisCercano(actualAngle);
 
-        //Finalmente establecemos ese angulo na posicion
+        //Finalmente establecemos ese ángulo na posición da roda
         SnapTo(snapAngles[indiceAnguloDestino]);
+       
     }
 
-    private int BuscarAnguloMaisCercano(float angle)
-    {
+    private int BuscarAnguloMaisCercano(float angle) {
         int angleIndex = -1;
         float actualMin = 360;
 
-        for (int i = 0; i < snapAngles.Length; i++)
-        {
-            if (Mathf.Abs(angle - snapAngles[i]) < actualMin)
-            {
-                actualMin = Mathf.Abs(angle - snapAngles[i]);
+        for(int i=0; i<snapAngles.Length; i++) {
+            if(Mathf.Abs(angle-snapAngles[i]) < actualMin) {
+                actualMin = Mathf.Abs(angle-snapAngles[i]);
                 angleIndex = i;
             }
         }
@@ -85,8 +97,7 @@ public class SnapTurnDial : MonoBehaviour
         return angleIndex;
     }
 
-    private void SnapTo(float angle)
-    {
+    private void SnapTo(float angle) {
         Vector3 actualEulerAngles = transform.localEulerAngles;
 
         actualEulerAngles[turnAxis] = angle;
@@ -95,22 +106,7 @@ public class SnapTurnDial : MonoBehaviour
         GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
     }
 
-    private void HapticFeedback()
-    {
-        float referenceAngle = snapAngles[BuscarAnguloMaisCercano(transform.localEulerAngles[turnAxis])];
-        if (hapticFeedBackControl && Mathf.Abs(referenceAngle - transform.localEulerAngles[turnAxis]) > hapticFeedBackRange)
-        {
-            hapticFeedBackControl = false;
-        }
-        else if (!hapticFeedBackControl && Mathf.Abs(referenceAngle - transform.localEulerAngles[turnAxis]) < hapticFeedBackRange)
-        {
-            hapticFeedBackControl = true;
-            baseController.SendHapticImpulse(0.3f, 0.1f);
-        }
-    }
-
-    public bool CodeCheck()
-    {
+    public bool CodeCheck() {
         float actualAngle = transform.localEulerAngles[turnAxis];
         return correctIndex == BuscarAnguloMaisCercano(actualAngle);
     }
