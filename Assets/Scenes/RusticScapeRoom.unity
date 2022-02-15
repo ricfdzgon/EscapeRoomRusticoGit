@@ -2733,14 +2733,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896436301}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1568046399}
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &912106361 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9145470251152698212, guid: a6aa79d1592e0174b983ac8b1825aec8, type: 3}
@@ -3198,6 +3198,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 991f7faf3818ce24d854dd90bfceb80b, type: 3}
+--- !u!1 &1108443054 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 855828750557236420, guid: 991f7faf3818ce24d854dd90bfceb80b, type: 3}
+  m_PrefabInstance: {fileID: 1108443053}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1108443055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108443054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7a8d19a3c34837449180d22de15be89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorDials:
+  - {fileID: 582737309}
+  - {fileID: 1995117146}
+  - {fileID: 17339428}
+  - {fileID: 1576641006}
+  - {fileID: 1808102201}
 --- !u!1001 &1132362357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5377,29 +5400,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1 &2096190707 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 54598542983427109, guid: 991f7faf3818ce24d854dd90bfceb80b, type: 3}
-  m_PrefabInstance: {fileID: 1108443053}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2096190709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2096190707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7a8d19a3c34837449180d22de15be89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colorDials:
-  - {fileID: 582737309}
-  - {fileID: 1995117146}
-  - {fileID: 17339428}
-  - {fileID: 1576641006}
-  - {fileID: 1808102201}
 --- !u!1 &2139354356 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9145470251152698212, guid: a6aa79d1592e0174b983ac8b1825aec8, type: 3}
