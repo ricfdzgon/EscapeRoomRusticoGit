@@ -42,34 +42,43 @@ public class SnapTurnDial : MonoBehaviour
         //se o está, non temos que facer nada
         //Se non está liberada, temos que facer que a roda se 
         //quede nunha das posicións prefixadas
-        if( ! rotacionLibre) {
+        if (!rotacionLibre)
+        {
             Snap();
-        } else {
+        }
+        else
+        {
             HapticFeedback();
         }
     }
 
-    private void HapticFeedback() {
+    private void HapticFeedback()
+    {
         float referenceAngle = snapAngles[BuscarAnguloMaisCercano(transform.localEulerAngles[turnAxis])];
-        if(hapticFeedbackControl && Mathf.Abs(referenceAngle - transform.localEulerAngles[turnAxis]) > hapticFeedbackRange) {
+        if (hapticFeedbackControl && Mathf.Abs(referenceAngle - transform.localEulerAngles[turnAxis]) > hapticFeedbackRange)
+        {
             hapticFeedbackControl = false;
-        } else if( ! hapticFeedbackControl &&  Mathf.Abs(referenceAngle - transform.localEulerAngles[turnAxis]) < hapticFeedbackRange) {
-             hapticFeedbackControl = true;
-             baseController.SendHapticImpulse(0.3f, 0.1f);
+        }
+        else if (!hapticFeedbackControl && Mathf.Abs(referenceAngle - transform.localEulerAngles[turnAxis]) < hapticFeedbackRange)
+        {
+            hapticFeedbackControl = true;
+            baseController.SendHapticImpulse(0.3f, 0.1f);
         }
     }
-    public void Liberar(bool libre) {
+    public void Liberar(bool libre)
+    {
         rotacionLibre = libre;
 
         baseController.SendHapticImpulse(0.3f, 0.1f);
     }
 
-    private void Snap() {
+    private void Snap()
+    {
         //Esta función busca e establece o ángulo no que debe quedar a roda
         //será o ángulo máis cercano ó que ten a roda no momento de soltala
         //O primeiro é mirar cal é o ángulo actual
         float actualAngle = transform.localEulerAngles[turnAxis];
-       
+
 
 
         //Despois buscamos cal dos ángulos prefixados é o máis cercano
@@ -80,16 +89,19 @@ public class SnapTurnDial : MonoBehaviour
 
         //Finalmente establecemos ese ángulo na posición da roda
         SnapTo(snapAngles[indiceAnguloDestino]);
-       
+
     }
 
-    private int BuscarAnguloMaisCercano(float angle) {
+    private int BuscarAnguloMaisCercano(float angle)
+    {
         int angleIndex = -1;
         float actualMin = 360;
 
-        for(int i=0; i<snapAngles.Length; i++) {
-            if(Mathf.Abs(angle-snapAngles[i]) < actualMin) {
-                actualMin = Mathf.Abs(angle-snapAngles[i]);
+        for (int i = 0; i < snapAngles.Length; i++)
+        {
+            if (Mathf.Abs(angle - snapAngles[i]) < actualMin)
+            {
+                actualMin = Mathf.Abs(angle - snapAngles[i]);
                 angleIndex = i;
             }
         }
@@ -97,7 +109,8 @@ public class SnapTurnDial : MonoBehaviour
         return angleIndex;
     }
 
-    private void SnapTo(float angle) {
+    private void SnapTo(float angle)
+    {
         Vector3 actualEulerAngles = transform.localEulerAngles;
 
         actualEulerAngles[turnAxis] = angle;
@@ -106,7 +119,12 @@ public class SnapTurnDial : MonoBehaviour
         GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
     }
 
-    public bool CodeCheck() {
+    public bool CodeCheck()
+    {
+        if (rotacionLibre)
+        {
+            return false;
+        }
         float actualAngle = transform.localEulerAngles[turnAxis];
         return correctIndex == BuscarAnguloMaisCercano(actualAngle);
     }
