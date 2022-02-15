@@ -3152,6 +3152,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room_Rustic
       objectReference: {fileID: 0}
+    - target: {fileID: 5233705834758725502, guid: 991f7faf3818ce24d854dd90bfceb80b, type: 3}
+      propertyPath: m_Size.x
+      value: 0.46121967
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233705834758725502, guid: 991f7faf3818ce24d854dd90bfceb80b, type: 3}
+      propertyPath: m_Size.y
+      value: 1.6949168
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233705834758725502, guid: 991f7faf3818ce24d854dd90bfceb80b, type: 3}
+      propertyPath: m_Center.x
+      value: 0.41053838
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233705834758725502, guid: 991f7faf3818ce24d854dd90bfceb80b, type: 3}
+      propertyPath: m_Center.y
+      value: 0.06655115
+      objectReference: {fileID: 0}
     - target: {fileID: 7891095538549670975, guid: 991f7faf3818ce24d854dd90bfceb80b, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -3221,6 +3237,58 @@ MonoBehaviour:
   - {fileID: 17339428}
   - {fileID: 1576641006}
   - {fileID: 1808102201}
+--- !u!59 &1108443056
+HingeJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108443054}
+  m_ConnectedBody: {fileID: 0}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_Anchor: {x: -0.4, y: 1, z: 0}
+  m_Axis: {x: 0, y: 1, z: 0}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: -0.4, y: 0.98, z: -2.07}
+  m_UseSpring: 0
+  m_Spring:
+    spring: 0
+    damper: 0
+    targetPosition: 0
+  m_UseMotor: 0
+  m_Motor:
+    targetVelocity: 0
+    force: 0
+    freeSpin: 0
+  m_UseLimits: 1
+  m_Limits:
+    min: 0
+    max: 90
+    bounciness: 0
+    bounceMinVelocity: 0.2
+    contactDistance: 0
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
+--- !u!54 &1108443057
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108443054}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1132362357
 PrefabInstance:
   m_ObjectHideFlags: 0
