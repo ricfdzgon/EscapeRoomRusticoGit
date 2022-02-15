@@ -8,10 +8,19 @@ public class DoorControlScript : MonoBehaviour
     public GameObject[] colorDials;
     void Start()
     {
-
+        //Nos tenemos que suscribir a cada uno de nuestros diales
+        for (int i = 0; i < colorDials.Length; i++)
+        {
+            colorDials[i].GetComponentInChildren<SnapTurnDial>().OnCodeChanged += codeHasChangeOuIsoDin;
+        }
     }
 
     void Update()
+    {
+
+    }
+
+    public void codeHasChangeOuIsoDin()
     {
         if (CodeCheck())
         {

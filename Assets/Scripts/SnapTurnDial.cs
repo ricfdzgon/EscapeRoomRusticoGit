@@ -5,6 +5,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class SnapTurnDial : MonoBehaviour
 {
+    public delegate void codeChangedDelegate();
+    public event codeChangedDelegate OnCodeChanged;
     public int correctIndex;
     //Precisamos unha
     //Lista dos ángulos nos que a roda se debe deter
@@ -68,6 +70,18 @@ public class SnapTurnDial : MonoBehaviour
     public void Liberar(bool libre)
     {
         rotacionLibre = libre;
+
+        //Si a acción consiste en fixar a posición do selector
+        //debemos invocar o evento OnCodeChanged
+        if (!libre)
+        {
+            //Comprobamos que o evento teña suscriptores
+            if (OnCodeChanged != null)
+            {
+                //Se os ten, invocámolo
+                OnCodeChanged();
+            }
+        }
 
         baseController.SendHapticImpulse(0.3f, 0.1f);
     }
