@@ -6,6 +6,7 @@ public class DoorControlScript : MonoBehaviour
 {
 
     public GameObject[] colorDials;
+    private HingeJoint hinge;
     void Start()
     {
         //Nos tenemos que suscribir a cada uno de nuestros diales
@@ -13,6 +14,7 @@ public class DoorControlScript : MonoBehaviour
         {
             colorDials[i].GetComponentInChildren<SnapTurnDial>().OnCodeChanged += codeHasChangeOuIsoDin;
         }
+        hinge = GetComponent<HingeJoint>();
     }
 
     void OnDestroy()
@@ -57,6 +59,12 @@ public class DoorControlScript : MonoBehaviour
 
     private void Open()
     {
-        Debug.Log("DoorControlScript.Open A abriríase se souperamos como");
+        //  Debug.Log("DoorControlScript.Open A abriríase se souperamos como");
+        var motor = hinge.motor;
+        motor.force = 100;
+        motor.targetVelocity = 90;
+        motor.freeSpin = false;
+        hinge.motor = motor;
+        hinge.useMotor = true;
     }
 }

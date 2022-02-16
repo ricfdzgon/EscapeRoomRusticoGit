@@ -15,13 +15,17 @@ public class CaixonRebelde : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void Liberar(bool liberar) {
-        if(liberar) {
+    public void Liberar(bool liberar)
+    {
+        if (liberar)
+        {
             configurableJoint.zMotion = ConfigurableJointMotion.Limited;
-        } else {
+        }
+        else
+        {
             configurableJoint.zMotion = ConfigurableJointMotion.Locked;
         }
     }
