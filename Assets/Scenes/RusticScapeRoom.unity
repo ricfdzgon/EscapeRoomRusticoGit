@@ -2115,10 +2115,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 622873255, guid: 73fa5e70e4342574fb84f0c1e296cffa, type: 3}
-      propertyPath: fila
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 32308063, guid: 73fa5e70e4342574fb84f0c1e296cffa, type: 3}
+      propertyPath: color
+      value: 
+      objectReference: {fileID: 2100000, guid: 47d7ab1c5ecedc4429a273c1f1971101, type: 2}
     - target: {fileID: 622873256, guid: 73fa5e70e4342574fb84f0c1e296cffa, type: 3}
       propertyPath: m_InteractionManager
       value: 
@@ -2188,6 +2188,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 32308063, guid: 73fa5e70e4342574fb84f0c1e296cffa, type: 3}
+      propertyPath: color
+      value: 
+      objectReference: {fileID: 2100000, guid: 562c9706853768441b826d7f641ac378, type: 2}
     - target: {fileID: 622873255, guid: 73fa5e70e4342574fb84f0c1e296cffa, type: 3}
       propertyPath: fila
       value: 1
@@ -3693,6 +3697,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 32308063, guid: 73fa5e70e4342574fb84f0c1e296cffa, type: 3}
+      propertyPath: color
+      value: 
+      objectReference: {fileID: 2100000, guid: c2244a50c21df804a834c56557807e3c, type: 2}
     - target: {fileID: 939410476673979380, guid: 73fa5e70e4342574fb84f0c1e296cffa, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -3823,6 +3831,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 32308063, guid: 73fa5e70e4342574fb84f0c1e296cffa, type: 3}
+      propertyPath: color
+      value: 
+      objectReference: {fileID: 2100000, guid: 5a67c469fe3c391499cc1800737348ad, type: 2}
     - target: {fileID: 622873255, guid: 73fa5e70e4342574fb84f0c1e296cffa, type: 3}
       propertyPath: fila
       value: 1
@@ -5006,6 +5018,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 32308063, guid: 73fa5e70e4342574fb84f0c1e296cffa, type: 3}
+      propertyPath: color
+      value: 
+      objectReference: {fileID: 2100000, guid: fa5a2e671ddf6274c8fd1000a05f46af, type: 2}
     - target: {fileID: 622873255, guid: 73fa5e70e4342574fb84f0c1e296cffa, type: 3}
       propertyPath: columna
       value: 1
