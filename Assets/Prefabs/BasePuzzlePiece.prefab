@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 622873261}
   m_Layer: 0
   m_Name: SocketE
-  m_TagString: Untagged
+  m_TagString: SocketE
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,7 +93,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 4294967295
+    m_Bits: 8
   m_AttachTransform: {fileID: 4886454257400199308}
   m_KeepSelectedTargetValid: 1
   m_StartingSelectedInteractable: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 622873257}
   m_Layer: 0
   m_Name: SocketN
-  m_TagString: Untagged
+  m_TagString: SocketN
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -190,7 +190,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 4294967295
+    m_Bits: 8
   m_AttachTransform: {fileID: 1998055425320649667}
   m_KeepSelectedTargetValid: 1
   m_StartingSelectedInteractable: {fileID: 0}
@@ -415,7 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229247049e12b014d83a0537312b26b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fila: 0
+  fila: 2
   columna: 0
 --- !u!114 &622873256
 MonoBehaviour:
@@ -435,7 +435,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 8
   m_SelectMode: 0
   m_CustomReticle: {fileID: 0}
   m_FirstHoverEntered:
