@@ -25,6 +25,9 @@ public class BrazoBalanza : MonoBehaviour
         contidoPratoEsquerdo.Add(swp);
         pesoPratoEsquerdo = calcularPesoPratoEsquerdo();
         Debug.Log("BrazoBalanza.AddObject novo peso " + pesoPratoEsquerdo);
+
+        //Suscribimos o evneto OnGravitingChanged do obxecto que se engadiu
+        swp.OnGravitingChanged += ActualizarPesoPratoEsquerdo;
     }
 
     private void RemoveObject(SmartWeightProvider swp)
@@ -32,6 +35,14 @@ public class BrazoBalanza : MonoBehaviour
         contidoPratoEsquerdo.Remove(swp);
         pesoPratoEsquerdo = calcularPesoPratoEsquerdo();
         Debug.Log("BrazoBalanza.RemoveObject novo peso " + pesoPratoEsquerdo);
+        //DesSuscribimos o evneto OnGravitingChanged do obxecto que se retira
+        swp.OnGravitingChanged -= ActualizarPesoPratoEsquerdo;
+    }
+
+    private void ActualizarPesoPratoEsquerdo()
+    {
+        pesoPratoEsquerdo = calcularPesoPratoEsquerdo();
+        Debug.Log("BrazoBalanza.ActualizarPesoPratoEsquerdo novo peso: " + pesoPratoEsquerdo);
     }
 
     private float calcularPesoPratoEsquerdo()

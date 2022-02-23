@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SmartWeightProvider : MonoBehaviour
 {
+    public delegate void GravitingChangedDelegate();
+    public event GravitingChangedDelegate OnGravitingChanged;
+
     public float weigth;
     private bool isGraviting;
     // Start is called before the first frame update
@@ -18,14 +21,21 @@ public class SmartWeightProvider : MonoBehaviour
 
     }
 
-    public float getWeigth() {
-        if(isGraviting) {
+    public float getWeigth()
+    {
+        if (isGraviting)
+        {
             return weigth;
         }
         return 0;
     }
 
-    public void SetGraviting (bool graviting) {
+    public void SetGraviting(bool graviting)
+    {
         isGraviting = graviting;
+        if (OnGravitingChanged != null)
+        {
+            OnGravitingChanged();
+        }
     }
 }
