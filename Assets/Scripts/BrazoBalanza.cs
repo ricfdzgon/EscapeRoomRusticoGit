@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BrazoBalanza : MonoBehaviour
 {
+    public delegate void WeigthChangedDelegate(bool pesoCorrecto);
+    public static event WeigthChangedDelegate OnWeightChanged;
+
     private List<SmartWeightProvider> contidoPratoEsquerdo;
     private float pesoPratoEsquerdo;
     public float pesoPratoDereito;
@@ -45,6 +48,17 @@ public class BrazoBalanza : MonoBehaviour
         if (pesoPratoEsquerdo == pesoPratoDereito)
         {
             Debug.Log("BrazoBalanza.ActualizarPesoPratoEsquerdo PESO CORRECTO");
+            if (OnWeightChanged != null)
+            {
+                OnWeightChanged(true);
+            }
+        }
+        else
+        {
+            if (OnWeightChanged != null)
+            {
+                OnWeightChanged(false);
+            }
         }
     }
 
