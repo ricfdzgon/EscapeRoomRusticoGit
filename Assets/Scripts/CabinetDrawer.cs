@@ -11,6 +11,7 @@ public class CabinetDrawer : MonoBehaviour
     {
         initPosition = transform.position;
         locked = true;
+        BrazoBalanza.OnWeightChanged += CheckLockState;
     }
 
     // Update is called once per frame
@@ -20,5 +21,10 @@ public class CabinetDrawer : MonoBehaviour
         {
             transform.position = initPosition;
         }
+    }
+
+    private void CheckLockState(bool pesoCorrecto)
+    {
+        locked = !pesoCorrecto;
     }
 }
