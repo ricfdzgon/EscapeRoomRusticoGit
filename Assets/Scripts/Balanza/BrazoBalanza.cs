@@ -86,11 +86,16 @@ public class BrazoBalanza : MonoBehaviour
     {
         //Ratio da diferenza de pesos respecto ó peso total
         float ratioPesos = (pesoPratoDereito - pesoPratoEsquerdo) / (pesoPratoDereito + pesoPratoEsquerdo);
+        Vector3 currentEulerAngles = transform.localEulerAngles;
+
         if (Mathf.Abs(ratioPesos) > maxDiferenzaPeso)
         {
-            Vector3 currentEulerAngles = transform.localEulerAngles;
             currentEulerAngles.z = Mathf.Sign(ratioPesos) * maxAngleRight;
-            transform.localEulerAngles = currentEulerAngles;
         }
+        else
+        {
+            currentEulerAngles.z = ratioPesos / maxDiferenzaPeso * maxAngleRight;
+        }
+        transform.localEulerAngles = currentEulerAngles;
     }
 }

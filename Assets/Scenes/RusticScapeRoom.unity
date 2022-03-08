@@ -2366,6 +2366,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mug
       objectReference: {fileID: 0}
+    - target: {fileID: 4735609338685400452, guid: 18d9bafd4e7591347b9751e6fdf1beb9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18d9bafd4e7591347b9751e6fdf1beb9, type: 3}
 --- !u!1 &588099983 stripped
@@ -2530,6 +2534,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 821324617058717411, guid: 18d9bafd4e7591347b9751e6fdf1beb9, type: 3}
   m_PrefabInstance: {fileID: 588099982}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &588099987
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588099983}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.11448562, y: 0.11703609, z: 0.10182337}
+  m_Center: {x: 0.006322165, y: 0.058518045, z: 0}
 --- !u!1001 &590279484
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6965,6 +6982,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mug (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4735609338685400452, guid: 18d9bafd4e7591347b9751e6fdf1beb9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18d9bafd4e7591347b9751e6fdf1beb9, type: 3}
 --- !u!1 &2069738037 stripped
@@ -7129,6 +7150,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 821324617058717411, guid: 18d9bafd4e7591347b9751e6fdf1beb9, type: 3}
   m_PrefabInstance: {fileID: 2069738036}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &2069738041
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069738037}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.11575808, y: 0.11703609, z: 0.10182337}
+  m_Center: {x: 0.0069583952, y: 0.058518045, z: 0}
 --- !u!1001 &2073555338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7136,6 +7170,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1725793968}
     m_Modifications:
+    - target: {fileID: 143644807546095975, guid: b86e1f99a5d722c45a76f188ef813fd1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 274004315282643721, guid: b86e1f99a5d722c45a76f188ef813fd1, type: 3}
       propertyPath: m_Name
       value: Kettle Variant
@@ -7245,7 +7283,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 588099985}
+      - m_Target: {fileID: 2073555341}
         m_TargetAssemblyTypeName: SmartWeightProvider, Assembly-CSharp
         m_MethodName: SetGraviting
         m_Mode: 6
@@ -7260,7 +7298,7 @@ MonoBehaviour:
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 588099985}
+      - m_Target: {fileID: 2073555341}
         m_TargetAssemblyTypeName: SmartWeightProvider, Assembly-CSharp
         m_MethodName: SetGraviting
         m_Mode: 6
@@ -7360,6 +7398,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3861322804692412698, guid: b86e1f99a5d722c45a76f188ef813fd1, type: 3}
   m_PrefabInstance: {fileID: 2073555338}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &2073555343
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073555339}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.31810477, y: 0.2978243, z: 0.258583}
+  m_Center: {x: -0.008527462, y: -0.004881496, z: 0.00035951534}
 --- !u!1001 &2104103018
 PrefabInstance:
   m_ObjectHideFlags: 0
