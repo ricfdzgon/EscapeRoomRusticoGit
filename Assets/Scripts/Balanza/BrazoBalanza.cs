@@ -15,6 +15,8 @@ public class BrazoBalanza : MonoBehaviour
     private List<SmartWeightProvider> contidoPratoEsquerdo;
     private float pesoPratoEsquerdo;
     public float pesoPratoDereito;
+    private float targetAngle;
+    private float angularSpeed = 80;
     void Start()
     {
         contidoPratoEsquerdo = new List<SmartWeightProvider>();
@@ -24,11 +26,25 @@ public class BrazoBalanza : MonoBehaviour
         pesoPratoEsquerdo = 0;
 
         AxustarAnguloBrazo();
+        targetAngle = maxAngleRight;
     }
 
     void Update()
     {
-
+        Vector3 currentAngle = transform.localEulerAngles;
+        if (currentAngle.z != targetAngle)
+        {
+            float step = angularSpeed * Time.deltaTime;
+            if (Mathf.Abs(targetAngle - currentAngle.z) > step)
+            {
+                currentAngle.z += Mathf.Sign(targetAngle - currentAngle.z) * step;
+            }
+            else
+            {
+                currentAngle.z = targetAngle;
+            }
+            transform.localEulerAngles = currentAngle;
+        }
     }
 
     private void AddObject(SmartWeightProvider swp)
@@ -90,11 +106,13 @@ public class BrazoBalanza : MonoBehaviour
 
         if (Mathf.Abs(ratioPesos) > maxDiferenzaPeso)
         {
-            currentEulerAngles.z = Mathf.Sign(ratioPesos) * maxAngleRight;
+            //  currentEulerAngles.z = Mathf.Sign(ratioPesos) * maxAngleRight;
+            targetAngle = Mathf.Sign(ratioPesos) * maxAngleRight;
         }
         else
         {
-            currentEulerAngles.z = ratioPesos / maxDiferenzaPeso * maxAngleRight;
+            //  currentEulerAngles.z = ratioPesos / maxDiferenzaPeso * maxAngleRight;
+            targetAngle = ratioPesos / maxDiferenzaPeso * maxAngleRight;
         }
         transform.localEulerAngles = currentEulerAngles;
     }

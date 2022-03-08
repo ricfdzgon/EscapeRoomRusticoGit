@@ -6,13 +6,14 @@ public class SmartWeightProvider : MonoBehaviour
 {
     public delegate void GravitingChangedDelegate();
     public event GravitingChangedDelegate OnGravitingChanged;
-
+    private Rigidbody rb;
     public float weigth;
     private bool isGraviting;
     // Start is called before the first frame update
     void Start()
     {
         isGraviting = true;
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -25,7 +26,10 @@ public class SmartWeightProvider : MonoBehaviour
     {
         if (isGraviting)
         {
-            return weigth;
+            if (rb.velocity.magnitude < 0.01)
+            {
+                return weigth;
+            }
         }
         return 0;
     }
@@ -33,6 +37,15 @@ public class SmartWeightProvider : MonoBehaviour
     public void SetGraviting(bool graviting)
     {
         isGraviting = graviting;
+        if (OnGravitingChanged != null)
+        {
+            OnGravitingChanged();
+        }
+    }
+
+    public void OnCollisionEnter(Collision other)
+    {
+        Debug.Log("SnapWeightProvider.OnCollisionEnter: Ha pasado por aquí");
         if (OnGravitingChanged != null)
         {
             OnGravitingChanged();
