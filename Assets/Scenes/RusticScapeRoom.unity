@@ -2554,6 +2554,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2920376605335983541, guid: 40435f125a597af468e46c4c732f8c86, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2920376605572742787, guid: 40435f125a597af468e46c4c732f8c86, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2601,6 +2605,14 @@ PrefabInstance:
     - target: {fileID: 2920376605572742798, guid: 40435f125a597af468e46c4c732f8c86, type: 3}
       propertyPath: m_Name
       value: BaseBalanza
+      objectReference: {fileID: 0}
+    - target: {fileID: 2920376605697552925, guid: 40435f125a597af468e46c4c732f8c86, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2920376606040927080, guid: 40435f125a597af468e46c4c732f8c86, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40435f125a597af468e46c4c732f8c86, type: 3}

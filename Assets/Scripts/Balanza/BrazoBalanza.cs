@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class BrazoBalanza : MonoBehaviour
 {
-    private float maxAngleRight = 8.0f;
-    // private float maxAngleLeft = -8.0f;
+    private float maxAngle = 8.0f;
     //Máxima diferenza de peso para que a inclinación do brazo
     //non sexa a máxima
     private float maxDiferenzaPeso = 0.4F;
@@ -26,7 +25,7 @@ public class BrazoBalanza : MonoBehaviour
         pesoPratoEsquerdo = 0;
 
         AxustarAnguloBrazo();
-        targetAngle = maxAngleRight;
+        targetAngle = maxAngle;
     }
 
     void Update()
@@ -106,13 +105,13 @@ public class BrazoBalanza : MonoBehaviour
 
         if (Mathf.Abs(ratioPesos) > maxDiferenzaPeso)
         {
-            //  currentEulerAngles.z = Mathf.Sign(ratioPesos) * maxAngleRight;
-            targetAngle = Mathf.Sign(ratioPesos) * maxAngleRight;
+            //  currentEulerAngles.z = Mathf.Sign(ratioPesos) * maxAngle;
+            targetAngle = Mathf.Sign(ratioPesos) * maxAngle;
         }
         else
         {
-            //  currentEulerAngles.z = ratioPesos / maxDiferenzaPeso * maxAngleRight;
-            targetAngle = ratioPesos / maxDiferenzaPeso * maxAngleRight;
+            //  currentEulerAngles.z = ratioPesos / maxDiferenzaPeso * maxAngle;
+            targetAngle = ratioPesos / maxDiferenzaPeso * maxAngle;
         }
         transform.localEulerAngles = currentEulerAngles;
     }
