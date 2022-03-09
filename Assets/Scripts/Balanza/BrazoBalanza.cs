@@ -31,12 +31,14 @@ public class BrazoBalanza : MonoBehaviour
     void Update()
     {
         Vector3 currentAngle = transform.localEulerAngles;
-        if (currentAngle.z != targetAngle)
+        float currentAngleZ180 = currentAngle.z < 180 ? currentAngle.z : currentAngle.z - 360;
+
+        if (currentAngleZ180 != targetAngle)
         {
             float step = angularSpeed * Time.deltaTime;
-            if (Mathf.Abs(targetAngle - currentAngle.z) > step)
+            if (Mathf.Abs(targetAngle - currentAngleZ180) > step)
             {
-                currentAngle.z += Mathf.Sign(targetAngle - currentAngle.z) * step;
+                currentAngle.z += Mathf.Sign(targetAngle - currentAngleZ180) * step;
             }
             else
             {

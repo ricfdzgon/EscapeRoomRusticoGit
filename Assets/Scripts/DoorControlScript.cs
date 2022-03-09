@@ -22,7 +22,10 @@ public class DoorControlScript : MonoBehaviour
         //Debemos anular a suscripcion o evento OnCodeChanged cando se destrue a porta
         for (int i = 0; i < colorDials.Length; i++)
         {
-            colorDials[i].GetComponentInChildren<SnapTurnDial>().OnCodeChanged -= codeHasChangeOuIsoDin;
+            if (colorDials[i] != null)
+            {
+                colorDials[i].GetComponentInChildren<SnapTurnDial>().OnCodeChanged -= codeHasChangeOuIsoDin;
+            }
         }
     }
 
